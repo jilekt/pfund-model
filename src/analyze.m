@@ -3,6 +3,7 @@ clear
 % === CONFIG ===
 yr_count = 34;
 test1_type = 1; % 1..user-defined, 2..brutal-force
+SAVE_FIGS = true;
 
 % === PRESETS ===
 test1.bf.user = [100; 500; 1000; 1500; 2000; 2500; 3000; 3500];  % [CZK]
@@ -154,3 +155,9 @@ xlabel('#year')
 ylabel('total amount [CZK]')
 title('amount-total @ year')
 legend(sprintf('pension fund (u: %.0f, e: %.0f, p: %.2f %%)', test3.user, test3.empl, test3.p), sprintf('account (u: %.0f, p: %.2f %%)', data3_pf.amounts.user_eff(1) / 12, results3.pa_eq(end) / 0.85))
+
+if SAVE_FIGS
+    for i = 1:3
+       print(i, sprintf('../results/fig-%.0f.png', i), '-dpng', '-r300')
+    end
+end

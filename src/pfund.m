@@ -17,7 +17,7 @@ elseif amount_user < 3000
     amount_tax = (amount_user - 1000) * 0.15;
 else
     amount_gov = 230;
-    amount_tax = 150;
+    amount_tax = 300;
 end
 
 data.years = (1:years_count).';
